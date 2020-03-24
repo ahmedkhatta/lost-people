@@ -17,7 +17,7 @@ class _MyHomePageState extends State<seteing_screen> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: AppBar(
-          title: Text("Harvest Farmer"),
+          title: Text("Lost Of People"),
           backgroundColor: Colors.blue,
         ),
         body: Padding(
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<seteing_screen> {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.forward,
+                            Icons.assignment,
                             color: Colors.white,
                           ),
                           Center(
@@ -77,12 +77,12 @@ class _MyHomePageState extends State<seteing_screen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => new Conected_me()));
+                                builder: (context) => new AboutPage()));
                       },
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.forward,
+                            Icons.phone,
                             color: Colors.white,
                           ),
                           Center(
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<seteing_screen> {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.forward,
+                            Icons.question_answer,
                             color: Colors.white,
                           ),
                           Center(
@@ -194,7 +194,7 @@ class _MyHomePageState extends State<seteing_screen> {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.forward,
+                            Icons.share,
                             color: Colors.white,
                           ),
                           Center(
@@ -234,7 +234,7 @@ class _MyHomePageState extends State<seteing_screen> {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.forward,
+                            Icons.add_to_home_screen,
                             color: Colors.white,
                           ),
                           Center(

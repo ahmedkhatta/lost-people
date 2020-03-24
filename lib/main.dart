@@ -16,17 +16,13 @@ import './FORM_INPUTS/location.dart';
 import './Screens/auth_screen.dart';
 import './helpers/custom_route.dart';
 
-
-
 void main() {
+  runApp(MyHome());
+}
 
-
-  runApp(MyHome());}
 class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-
     return MultiProvider(
 
         providers: [
@@ -37,7 +33,7 @@ class MyHome extends StatelessWidget {
             value: GreatPlaces(),
           ),
           ChangeNotifierProxyProvider<Auth, Posts>(
-            update:(ctx, auth, previousProducts) => Posts(
+            update: (ctx, auth, previousProducts) => Posts(
                 auth.token,
                 auth.userId,
                 previousProducts == null ? [] : previousProducts.items),
@@ -45,7 +41,8 @@ class MyHome extends StatelessWidget {
         ],
         child: Consumer<Auth>(
           builder: (ctx, auth, _) => MaterialApp(
-            title: 'MyShop',
+            debugShowCheckedModeBanner: false,
+            title: 'Lost Of People',
             theme: ThemeData(
                 primarySwatch: Colors.blue,
                 accentColor: Colors.blueAccent,
@@ -68,9 +65,8 @@ class MyHome extends StatelessWidget {
               PersonDetailsScreen.routeName: (ctx) => PersonDetailsScreen(),
               UserPersonScreen.routeName: (ctx) => UserPersonScreen(),
               EditPersonScreen.routeName: (ctx) => EditPersonScreen(),
-
             },
           ),
         ));
- }
+  }
 }

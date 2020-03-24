@@ -1,163 +1,312 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/bottom.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Conected_me extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
+class AboutPage extends StatelessWidget {
+  var facebook = "https://www.facebook.com/akhattab595";
 
-class _MyHomePageState extends State<Conected_me> {
-  @override
-  var facebook = "https://www.facebook.com/ ";
-
-  var mail = "https://mail.google.com/mail/u/0/?tab=rm#inbox";
-  var whatsapp = "https://web.whatsapp.com/";
-  void openurl() async {
+  var youtube =
+      "https://www.youtube.com/channel/UCFjmzpkzphmZe6-Kl2r1c8w?view_as=subscriber";
+  void openfacebook() async {
     await launch(facebook);
   }
 
-
-
-  void openmail() async {
-    await launch(mail);
+  void openyoutube() async {
+    await launch(youtube);
   }
 
-  void openwhatsapp() async {
-    await launch(whatsapp);
-  }
-
+  @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: AppBar(
-          title: Text("Harvest Farmer"),
-          backgroundColor: Colors.blue,
-        ),
-        body: new Stack(
-      children: <Widget>[
-        ClipPath(
-          child: Container(color: Colors.blue),
-          clipper: getClipper(),
-        ),
-        Positioned(
-            width: 350.0,
-            top: MediaQuery.of(context).size.height / 5,
-            child: Column(
-              children: <Widget>[
-                Container(
-                    width: 150.0,
-                    height: 150.0,
-                    decoration: BoxDecoration(
-                        color: Colors.lightBlue,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://k.top4top.io/p_1528uy8no1.jpg"),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.all(Radius.circular(75.0)),
-                        boxShadow: [
-                          BoxShadow(blurRadius: 7.0, color: Colors.blue)
-                        ])),
-                SizedBox(height: 30.0),
-                Text(
-                  'Harvest',
-                  style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                      fontFamily: 'Pacifico'),
-                ),
-                SizedBox(height: 5.0),
-                Text(
-                  ' لتسويق الخضراوات والفواكه',
-                  style: TextStyle(
-                      fontSize: 17.0,
-                      color: Colors.blue,
-                      fontStyle: FontStyle.italic,
-                      fontFamily: 'Montserrat'),
-                ),
-                SizedBox(height: 15.0),
-                Container(
-                    height: 30.0,
-                    width: 220.0,
-                    child: Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      shadowColor: Colors.lightBlue,
-                      color: Colors.blue,
-                      child: GestureDetector(
-                        onTap: openurl,
-                        child: Center(
-                          child: Text(
-                            'facebook',
-                            style: TextStyle(
-                                color: Colors.white, fontFamily: 'Montserrat'),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 32.0),
+      color: Color(0xff00BFA5),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Plane(),
+              AnimatedTranslate(),
+              SizedBox(
+                height: 24.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(
+                        height: 50.0,
+                        width: 95.0,
+                        child: Material(
+                          borderRadius: BorderRadius.circular(20.0),
+                          shadowColor: Colors.blueAccent,
+                          color: Colors.blue,
+                          elevation: 7.0,
+                          child: GestureDetector(
+                            onTap: openfacebook,
+                            child: Row(
+                              children: <Widget>[
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 0.0),
+                                    child: Text(
+                                      'FaceBook',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontFamily: 'Montserrat'),
+                                      textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ),
-                    )),
-                SizedBox(height: 15.0),
-                Container(
-                    height: 30.0,
-                    width: 220.0,
-                    child: Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      shadowColor: Colors.lightBlue,
-                      color: Colors.blue,
-                      elevation: 7.0,
-                      child: GestureDetector(
-                        onTap: openwhatsapp,
-                        child: Center(
-                          child: Text(
-                            '055555555',
-                            style: TextStyle(
-                                color: Colors.white, fontFamily: 'Montserrat'),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Container(
+                        height: 50.0,
+                        width: 80.0,
+                        child: Material(
+                          borderRadius: BorderRadius.circular(20.0),
+                          shadowColor: Colors.blueAccent,
+                          color: Colors.blue,
+                          elevation: 7.0,
+                          child: GestureDetector(
+                            onTap: openyoutube,
+                            child: Row(
+                              children: <Widget>[
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 0.0),
+                                    child: Text(
+                                      'Youtube',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontFamily: 'Montserrat'),
+                                      textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ),
-                    )),
-                SizedBox(height: 15.0),
-                Container(
-                    height: 30.0,
-                    width: 220.0,
-                    child: Material(
-                      borderRadius: BorderRadius.circular(30.0),
-                      shadowColor: Colors.lightBlue,
-                      color: Colors.blue,
-                      elevation: 7.0,
-                      child: GestureDetector(
-                        onTap: openmail,
-                        child: Center(
-                          child: Text(
-                            'harvistapp@gmail.com',
-                            style: TextStyle(
-                                color: Colors.white, fontFamily: 'Montserrat'),
-                          ),
-                        ),
-                      ),
-                    )),
-                SizedBox(height: 15.0),
-//
-
-              ],
-            ))
-      ],
-    ));
+                        )),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 24.0,
+              ),
+              AnimatedHeritage(),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
-class getClipper extends CustomClipper<Path> {
+class AnimatedHeritage extends StatefulWidget {
   @override
-  Path getClip(Size size) {
-    var path = new Path();
+  _AnimatedHeritageState createState() => _AnimatedHeritageState();
+}
 
-    path.lineTo(0.0, size.height / 1.9);
-    path.lineTo(size.width + 125, 0.0);
-    path.close();
-    return path;
+class _AnimatedHeritageState extends State<AnimatedHeritage>
+    with SingleTickerProviderStateMixin {
+  Animation<double> animation;
+  AnimationController controller;
+
+  bool show = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
+    final Animation curve =
+        CurvedAnimation(parent: controller, curve: Curves.easeInOut);
+    animation = Tween(begin: 3.14 * 0.20, end: -3.14 * 0.20).animate(curve);
+    controller.addStatusListener((_) async {
+      if (controller.status == AnimationStatus.completed) {
+        setState(() {
+          show = !show;
+        });
+        if (controller != null) {
+          controller.reset();
+          controller.forward();
+        }
+      }
+    });
+    controller.forward();
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    return true;
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: <Widget>[
+        Container(
+          height: 40.0,
+          width: 100.0,
+          color: show ? Colors.red : Colors.yellow,
+          margin: EdgeInsets.only(bottom: 4.0),
+        ),
+        Image.asset(
+          'assets/images/lucknow_heritage.png',
+          height: 120.0,
+        ),
+      ],
+    );
+  }
+}
+
+class AnimatedTranslate extends StatefulWidget {
+  @override
+  _AnimatedTranslateState createState() => _AnimatedTranslateState();
+}
+
+class _AnimatedTranslateState extends State<AnimatedTranslate>
+    with SingleTickerProviderStateMixin {
+  Animation animation;
+  AnimationController controller;
+
+  bool show = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(duration: Duration(milliseconds: 700), vsync: this);
+    final Animation curve =
+        CurvedAnimation(parent: controller, curve: Curves.easeInOut);
+    animation = Tween(begin: 0.0, end: -30.0).animate(curve);
+    controller.addStatusListener((status) async {
+      if (status == AnimationStatus.completed) {
+        if (controller != null) controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        if (controller != null) controller.forward();
+      }
+    });
+    controller.addListener(() {
+      setState(() {});
+    });
+    controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Image.asset(
+          'assets/images/lucknow.png',
+          height: 180.0,
+        ),
+        Transform.translate(
+          offset: Offset(0.0, animation.value - 24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Material(
+                shape: CircleBorder(),
+                color: Colors.white,
+                child: Container(
+                  padding: EdgeInsets.all(2.0),
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/assets.jpg'),
+                    radius: 30.0,
+                  ),
+                ),
+              ),
+              Icon(
+                Icons.location_on,
+                color: Colors.white,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class Plane extends StatefulWidget {
+  @override
+  _PlaneState createState() => _PlaneState();
+}
+
+class _PlaneState extends State<Plane> with SingleTickerProviderStateMixin {
+  Animation animation;
+  AnimationController controller;
+
+  bool show = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    controller = AnimationController(
+        duration: Duration(milliseconds: 6000), vsync: this);
+    final Animation curve =
+        CurvedAnimation(parent: controller, curve: Curves.linear);
+    animation =
+        Tween(begin: 0.0, end: -(MediaQuery.of(context).size.width + 500.0))
+            .animate(curve);
+
+    controller.addListener(() {
+      setState(() {});
+    });
+    controller.addStatusListener((status) async {
+      if (status == AnimationStatus.completed) {
+        await Future.delayed(Duration(milliseconds: 600));
+        if (controller != null) {
+          controller.reset();
+          controller.forward();
+        }
+      } else if (status == AnimationStatus.dismissed) {
+        if (controller != null) controller.forward();
+      }
+    });
+    controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Transform.translate(
+          offset: Offset(
+              MediaQuery.of(context).size.width + animation.value + 100.0,
+              -28.0),
+          child: Image.asset('assets/images/pp.png'),
+        ),
+      ],
+    );
   }
 }
