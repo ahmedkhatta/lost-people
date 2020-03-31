@@ -33,6 +33,15 @@ dependencies:
   shared_preferences: any
   google_maps_flutter: any
   geolocator: ^5.3.0
+  location: any
+  search_map_place: any
+  image_cropper:
+  flutter_image_compress:
+  uuid:
+  path_provider: any
+  firebase_storage: any
+  firebase_core: any
+
   url_launcher: any
   font_awesome_flutter:  any
   permission_handler: any
@@ -65,6 +74,7 @@ flutter:
 
     - assets/images/assets.jpg
     - assets/images/pp.png
+    - assets/images/facebook.png
 
 
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:provider/provider.dart';
-import '../FORM_INPUTS/locations_person.dart';
+
 import '../providers/post.dart';
 import 'package:geolocator/geolocator.dart';
 import '../providers/posts.dart';
@@ -16,11 +16,12 @@ class _EditProductScreenState extends State<EditPersonScreen> {
   final _dayLostFocusNode = FocusNode();
   final _descruptionFocusNode = FocusNode();
   final _locationFocusNode = FocusNode();
+  final _facebockFocusNode = FocusNode();
   final _imageUrlFocusNode = FocusNode();
   final _imageUrlController = TextEditingController();
   final _form = GlobalKey<FormState>();
   var _editProduct =
-  Post(id: null, name: '', description: '', imageUrl: '', dayLost: '',location:'');
+  Post(id: null, name: '', description: '', imageUrl: '', dayLost: '',location:'',facebock:'');
   @override
   void initState() {
     _imageUrlFocusNode.addListener(_updatImageUrl);
@@ -36,6 +37,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
     'imageUrl': "",
     'dayLost': "",
     'location':"",
+    'facebock':"",
   };
   @override
   void didChangeDependencies() {
@@ -48,7 +50,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
           'name': _editProduct.name,
           'description': _editProduct.description,
           'location':_editProduct.location ,
-          //  'imageUrl': _editProduct.imageUrl,
+          'facebock':_editProduct.facebock,
           'imageUrl': "",
           'dayLost': _editProduct.dayLost ,
         };
@@ -64,7 +66,9 @@ class _EditProductScreenState extends State<EditPersonScreen> {
     _imageUrlFocusNode.removeListener(_updatImageUrl);
     _dayLostFocusNode.dispose();
     _locationFocusNode.dispose();
+
     _descruptionFocusNode.dispose();
+    _facebockFocusNode.dispose();
     _imageUrlController.dispose();
     _imageUrlFocusNode.dispose();
 
@@ -117,7 +121,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
 //          _isloading = false;
 //        });
 //        Navigator.of(context).pop();
-      }
+    }
       setState(() {
         _isloading = false;
       });
@@ -130,7 +134,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Person"),
+        title: Text("التعديل علي شخص"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
@@ -150,14 +154,15 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                     children: <Widget>[
                       TextFormField(
                         initialValue: _initValues['name'],
-                        decoration: InputDecoration(labelText: 'name'),
+                        decoration: InputDecoration(labelText: 'الاسم'),
+                        textDirection: TextDirection.ltr,
                         textInputAction: TextInputAction.next,
                         onFieldSubmitted: (_) {
                           FocusScope.of(context).requestFocus(_dayLostFocusNode);
                         },
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'plese provide a value.';
+                            return 'من فضلك أدخل الاسم';
                           } else {
                             return null;
                           }
@@ -169,6 +174,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                             description: _editProduct.description,
                             imageUrl: _editProduct.imageUrl,
                             dayLost: _editProduct.dayLost,
+                            facebock: _editProduct.facebock,
                             id: _editProduct.id,
                             isFavorite: _editProduct.isFavorite,
                           );
@@ -176,9 +182,9 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                       ),
                       TextFormField(
                         initialValue: _initValues['dayLost'],
-                        decoration: InputDecoration(labelText: 'dayLost'),
+                        decoration: InputDecoration(labelText: 'يوم فقدان الشخص '),
                         textInputAction: TextInputAction.next,
-                        keyboardType: TextInputType.number,
+                        textDirection: TextDirection.rtl,
                         focusNode: _dayLostFocusNode,
                         onFieldSubmitted: (_) {
                           FocusScope.of(context)
@@ -186,14 +192,9 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                         },
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'Plese enter a dayLost .';
+                            return 'من فضلك أدخل يوم فقدان الشخص ';
                           }
-                          if (double.tryParse(value) == null) {
-                            return 'please enter avalid number.';
-                          }
-                          if (double.parse(value) <= 0) {
-                            return 'please enter a number greater than zero';
-                          }
+
                           return null;
                         },
                         onSaved: (value) {
@@ -202,6 +203,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                             dayLost:  value,
                             location:_editProduct.location,
                             description: _editProduct.description,
+                            facebock: _editProduct.facebock,
                             imageUrl: _editProduct.imageUrl,
 
                             id: _editProduct.id,
@@ -211,18 +213,22 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                       ),
                 TextFormField(
                   initialValue: _initValues['location'],
-                  decoration: InputDecoration(labelText: 'location'),
+                  decoration: InputDecoration(labelText: 'المكان    ',),
+
                   textInputAction: TextInputAction.next,
+                  textDirection: TextDirection.rtl,
 
                   focusNode: _locationFocusNode,
+                  onFieldSubmitted: (_) {
+                    FocusScope.of(context)
+                        .requestFocus(_descruptionFocusNode);
+                  },
 
                   validator: (value) {
                     if (value.isEmpty) {
-                      return 'pleas enter  a description .';
+                      return 'من فضلك ادخل  مكان الشخص';
                     }
-                    if (value.length < 10) {
-                      return 'Should be at least 10 characters long .';
-                    }
+
                     return null;
                   },
                   onSaved: (value) {
@@ -232,6 +238,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                       location:value,
                       description: _editProduct.description,
                       imageUrl: _editProduct.imageUrl,
+                      facebock: _editProduct.facebock,
                       id: _editProduct.id,
                       isFavorite: _editProduct.isFavorite,
                     );
@@ -247,7 +254,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                          },
 
                          textColor: Colors.white,
-                         padding: const EdgeInsets.all(0.0),
+
                          child: Container(
                            decoration: const BoxDecoration(
                              gradient: LinearGradient(
@@ -260,7 +267,8 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                            ),
                            padding: const EdgeInsets.all(10.0),
                            child: const Text(
-                               'Curent Location',
+                               'من فضلك اضغط هنا لاخد مكانك الحالي ',
+                               textDirection: TextDirection.rtl,
                                style: TextStyle(fontSize: 20)
                            ),
                          ),
@@ -268,17 +276,22 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                       ),
                       TextFormField(
                         initialValue: _initValues['description'],
-                        decoration: InputDecoration(labelText: 'Description'),
+                        decoration: InputDecoration(labelText: 'المزيد من المعلومات '),
                         textInputAction: TextInputAction.next,
                         maxLines: 3,
                         focusNode: _descruptionFocusNode,
                         keyboardType: TextInputType.multiline,
+                        onFieldSubmitted: (_) {
+                          FocusScope.of(context)
+                              .requestFocus(_facebockFocusNode);
+                        },
+
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'pleas enter  a description .';
+                            return 'من فضلك أدخل المزيد من المعلومات عن الشخص .';
                           }
                           if (value.length < 10) {
-                            return 'Should be at least 10 characters long .';
+                            return 'يجب ان يكون المعلومات اكثر من عشرة أحرف';
                           }
                           return null;
                         },
@@ -289,6 +302,40 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                             location:_editProduct.location,
                             imageUrl: _editProduct.imageUrl,
                             dayLost: _editProduct.dayLost,
+                            facebock: _editProduct.facebock,
+                            id: _editProduct.id,
+                            isFavorite: _editProduct.isFavorite,
+                          );
+                        },
+                      ),
+                      TextFormField(
+                        initialValue: _initValues['facebock'],
+                        decoration: InputDecoration(labelText: 'لينك الفيس بوك'),
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.url,
+                        textDirection: TextDirection.rtl,
+                        focusNode: _facebockFocusNode,
+
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'من فضلك أدخل لينك الفيس بوك';
+                          }
+                          if (!value.startsWith('http') &&
+                              !value.startsWith('https')) {
+                            return 'هذا اللينك  غير صحيح ';
+                          }
+//
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _editProduct = Post(
+                            name: _editProduct.name,
+                            dayLost:  _editProduct.dayLost,
+                            location:_editProduct.location,
+                            description: _editProduct.description,
+                            facebock: value,
+                            imageUrl: _editProduct.imageUrl,
+
                             id: _editProduct.id,
                             isFavorite: _editProduct.isFavorite,
                           );
@@ -308,7 +355,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                               ),
                             ),
                             child: _imageUrlController.text.isEmpty
-                                ? Text('Enter a URL')
+                                ? Text('ادخل لينك الصوره')
                                 : FittedBox(
                                     child:
                                         Image.network(_imageUrlController.text),
@@ -319,7 +366,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                             child: TextFormField(
                               // initialValue: _initValues['imageUrl'],
                               decoration:
-                                  InputDecoration(labelText: 'Image URL'),
+                                  InputDecoration(labelText: 'لينك الصوره'),
                               keyboardType: TextInputType.url,
                               textInputAction: TextInputAction.done,
                               controller: _imageUrlController,
@@ -329,11 +376,11 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                               },
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return 'pleas enter  an image URL .';
+                                  return 'من فضلك أخل لينك الصوره';
                                 }
                                 if (!value.startsWith('http') &&
                                     !value.startsWith('https')) {
-                                  return 'pleas enter a valid URL .';
+                                  return '  هذا اللينك غير صحيح ';
                                 }
 //
                                 return null;
@@ -345,6 +392,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                                   description: _editProduct.description,
                                   imageUrl: value,
                                   dayLost: _editProduct.dayLost,
+                                  facebock: _editProduct.facebock,
                                   id: _editProduct.id,
                                   isFavorite: _editProduct.isFavorite,
                                 );

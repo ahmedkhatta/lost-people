@@ -22,7 +22,7 @@ class PostItem extends StatelessWidget {
       width: double.infinity,
 
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(30.0),
 
         child: GridTile(
           child: GestureDetector(
@@ -44,7 +44,7 @@ class PostItem extends StatelessWidget {
                 ),
               )),
           footer: GridTileBar(
-            backgroundColor: Colors.black87,
+            backgroundColor: Colors. blueGrey.shade100,
             leading: Consumer<Post>(
               builder: (ctx, product, child) => IconButton(
                 icon: Icon(
@@ -60,17 +60,31 @@ class PostItem extends StatelessWidget {
             ),
             title: Text(
               product.name,
+              style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
 
-            trailing: IconButton(
-              icon: Icon(Icons.share),
-              onPressed: () {
+            trailing: Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.share),
+                  onPressed: () {
 
-                Share.share('share post');
+                    Share.share('share post');
 
-              },
-              color: Theme.of(context).accentColor,
+                  },
+                  color: Theme.of(context).accentColor,
+                ),
+                IconButton(
+                  icon: Icon(Icons.comment),
+                  onPressed: () {
+
+
+
+                  },
+                  color: Theme.of(context).accentColor,
+                ),
+              ],
             ),
           ),
         ),

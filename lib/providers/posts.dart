@@ -47,6 +47,7 @@ class Posts with ChangeNotifier {
           name: postData['name'],
           dayLost: postData['dayLost'],
           description: postData['description'],
+          facebock: postData['facebock'],
           location: postData['location'],
           imageUrl: postData['imageUrl'],
           isFavorite:favaiteData==null?false:  favaiteData[postId] ??false,
@@ -70,6 +71,7 @@ class Posts with ChangeNotifier {
             'imageUrl': post.imageUrl,
             'dayLost': post.dayLost,
             'creatorId':userId,
+            'facebock':post.facebock,
             'location':post.location,
 
           }));
@@ -78,6 +80,7 @@ class Posts with ChangeNotifier {
         description: post.description,
         imageUrl: post.imageUrl,
         dayLost: post.dayLost,
+        facebock: post.facebock,
         location: post.location,
         id: json.decode(response.body)['name'],
       );
@@ -101,6 +104,7 @@ class Posts with ChangeNotifier {
             'location':newPost.location,
             'description': newPost.description,
             'imageUrl': newPost.imageUrl,
+            'facebock':newPost.facebock,
             'dayLost': newPost.dayLost,
           }));
       _items[prodIndex] = newPost;

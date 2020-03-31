@@ -8,6 +8,7 @@ class Post with ChangeNotifier {
   final String description;
   final String location ;
   final String dayLost;
+  final String facebock;
   final String imageUrl;
   bool isFavorite;
 
@@ -17,6 +18,7 @@ class Post with ChangeNotifier {
     @required this.description,
     @required this.location,
     @required this.dayLost,
+    @required this.facebock,
     @required this.imageUrl,
     this.isFavorite = false,
   });

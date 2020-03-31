@@ -49,7 +49,8 @@ class _PersonsOverViewScreenState extends State<PersonOverViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Lost Of People"), actions: <Widget>[
+      appBar: AppBar(title: Text("Lost Of People"),
+          actions: <Widget>[
         PopupMenuButton(
           onSelected: (FilterOptions selectValue) {
             setState(() {
@@ -63,11 +64,11 @@ class _PersonsOverViewScreenState extends State<PersonOverViewScreen> {
           icon: Icon(Icons.more_vert),
           itemBuilder: (_) => [
             PopupMenuItem(
-              child: Text("Only Favorites person"),
+              child: Text("الأشخاص المفضله "),
               value: FilterOptions.Favorites,
             ),
             PopupMenuItem(
-              child: Text("Show all person"),
+              child: Text("رؤية كل الاشخاص"),
               value: FilterOptions.All,
             )
           ],

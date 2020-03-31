@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../Screens/seting%20screen.dart';
 
-
 import '../FORM_INPUTS/location.dart';
-
 
 import '../providers/auth.dart';
 import '../Screens/user_posts_screen.dart';
@@ -17,29 +15,28 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: Text('Hello Friend !'),
+            title: Text('مرحبا بالأصدقاء'),
             automaticallyImplyLeading: false,
             backgroundColor: Colors.blue,
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Lost Of People'),
+            leading: Icon(Icons.home,color: Colors.blue,),
+            title: Text('Lost Of People',style: TextStyle(color: Colors.blue,),),
             onTap: () {
               Navigator.of(context).pushReplacementNamed("/");
             },
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.search),
-            title: Text('Search by Location'),
+            leading: Icon(Icons.search,color: Colors.green,),
+            title: Text('ابحث علي الخريطه',style: TextStyle(color: Colors.green,),),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => location_personHome()),
               );
             },
-
           ),
 //          Divider(),
 //          ListTile(
@@ -48,27 +45,15 @@ class AppDrawer extends StatelessWidget {
 //            onTap: () {
 //              Navigator.push(
 //                context,
-//                MaterialPageRoute(builder: (context) => search()),
+//                MaterialPageRoute(builder: (context) => MapSample()),
 //              );
 //            },
-//          ),
+          //  ),
+
           Divider(),
           ListTile(
-            leading: Icon(Icons.notifications),
-            title: Text('Seting'),
-
-    onTap: () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => seteing_screen()),
-    );
-    },
-
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.edit),
-            title: Text('Manage data person'),
+            leading: Icon(Icons.edit,color: Colors.green,),
+            title: Text('اضافة أوالتعديل علي شخص', style: TextStyle(color: Colors.green,),),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(UserPersonScreen.routeName);
@@ -76,8 +61,19 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            leading: Icon(Icons.notifications,color: Colors.blue,),
+            title: Text('الاعدادات', style: TextStyle(color: Colors.blue,),),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => seteing_screen()),
+              );
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.exit_to_app,color: Colors.red,),
+            title: Text('تسجيل الخروج',style: TextStyle(color: Colors.red,),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).pushReplacementNamed('/');

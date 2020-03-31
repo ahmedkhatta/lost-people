@@ -18,7 +18,7 @@ class UserPersonScreen extends StatelessWidget {
     print("rebuilding.....");
     return Scaffold(
         appBar: AppBar(
-          title: const Text('All Person'),
+          title: const Text('كل الأشخاص'),
           actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.add),

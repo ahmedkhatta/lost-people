@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../FORM_INPUTS/postMap.dart';
-
+import 'package:search_map_place/search_map_place.dart';
 
 class location_personHome extends StatefulWidget {
   @override
@@ -9,24 +11,27 @@ class location_personHome extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<location_personHome> {
+  Completer<GoogleMapController> _mapController = Completer();
   GoogleMapController _controller;
-
+  String apiKEY = "AIzaSyCYYBCw2Emv09ZlH9rDYED1LXLrYeG20F0";
   List<Marker> allMarkers = [];
 
   PageController _pageController;
 
   int prevPage;
+  final CameraPosition _initialCamera = CameraPosition(
+    target: LatLng(40.7128, -74.0060),
+    zoom: 14.0000,
+  );
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Posts.forEach((element) {
       allMarkers.add(Marker(
           markerId: MarkerId(element.name),
           draggable: false,
-          infoWindow:
-          InfoWindow(title: element.name, snippet: element.dayLost),
+          infoWindow: InfoWindow(title: element.name, snippet: element.dayLost),
           position: element.locationCoords));
     });
     _pageController = PageController(initialPage: 1, viewportFraction: 0.8)
@@ -92,8 +97,7 @@ class _MyHomePageState extends State<location_personHome> {
                                       bottomLeft: Radius.circular(10.0),
                                       topLeft: Radius.circular(10.0)),
                                   image: DecorationImage(
-                                      image: NetworkImage(
-                                          Posts[index].image),
+                                      image: NetworkImage(Posts[index].image),
                                       fit: BoxFit.cover))),
                           SizedBox(width: 5.0),
                           Column(
@@ -131,7 +135,7 @@ class _MyHomePageState extends State<location_personHome> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Maps Lost People'),
+          title: Text('خريطة الأشخاص المفقوده'),
           centerTitle: true,
         ),
         body: Stack(
@@ -159,7 +163,29 @@ class _MyHomePageState extends State<location_personHome> {
                   },
                 ),
               ),
-            )
+            ),
+            Positioned(
+              top: 50,
+              height: 80,
+              left: MediaQuery.of(context).size.width * 0.05,
+              // width: MediaQuery.of(context).size.width * 0.9,
+              child: SearchMapPlaceWidget(
+                apiKey: "AIzaSyCYYBCw2Emv09ZlH9rDYED1LXLrYeG20F0",
+                location: _initialCamera.target,
+                radius: 30000,
+                onSelected: (place) async {
+                  final geolocation = await place.geolocation;
+
+                  final GoogleMapController controller =
+                      await _mapController.future;
+
+                  controller.animateCamera(
+                      CameraUpdate.newLatLng(geolocation.coordinates));
+                  controller.animateCamera(
+                      CameraUpdate.newLatLngBounds(geolocation.bounds, 0));
+                },
+              ),
+            ),
           ],
         ));
   }

@@ -16,7 +16,7 @@ class BottomPageText extends StatelessWidget {
           style: TextStyle(
             letterSpacing: 2.0,
             fontSize: 60.0,
-            color: Colors.black.withOpacity(0.07),
+            color: Colors.black.withOpacity(0.05),
           ),
         ),
       ),

@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "515550352729",
+    "firebase_url": "https://lost-of-people-4abff.firebaseio.com",
+    "project_id": "lost-of-people-4abff",
+    "storage_bucket": "lost-of-people-4abff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515550352729:android:22fcfafccbdae0ffd4a848",
+        "android_client_info": {
+          "package_name": "akhattab595.lostofpeople"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515550352729-rcjlcgtih73ec1simf7m2vcs2q6eqlu0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "akhattab595.lostofpeople",
+            "certificate_hash": "eaba82bb079585de1da9ea847b6a3844db853314"
+          }
+        },
+        {
+          "client_id": "515550352729-g1uqtsv5p9tvoqpau1oolfha259un9m6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqi_8DnBwX9vZWKgUgwoMCTh57YS-rTkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515550352729-g1uqtsv5p9tvoqpau1oolfha259un9m6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515550352729:android:a4e9f319f03331a8d4a848",
+        "android_client_info": {
+          "package_name": "com.example.lostofpeople"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515550352729-162n876rre08rgup5dko49v5m2gfcloi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lostofpeople",
+            "certificate_hash": "eaba82bb079585de1da9ea847b6a3844db853314"
+          }
+        },
+        {
+          "client_id": "515550352729-g1uqtsv5p9tvoqpau1oolfha259un9m6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqi_8DnBwX9vZWKgUgwoMCTh57YS-rTkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515550352729-g1uqtsv5p9tvoqpau1oolfha259un9m6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
