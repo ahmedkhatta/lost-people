@@ -265,7 +265,7 @@ class _PlaneState extends State<Plane> with SingleTickerProviderStateMixin {
     super.didChangeDependencies();
 
     controller = AnimationController(
-        duration: Duration(milliseconds: 6000), vsync: this);
+        duration: Duration(milliseconds: 10000), vsync: this);
     final Animation curve =
         CurvedAnimation(parent: controller, curve: Curves.linear);
     animation =

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:lostofpeople/seting_screen_details/conected_with_me.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import '../providers/auth.dart';
@@ -39,8 +40,12 @@ class AuthScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top:20.0,bottom: 50.0),
+                    child: Plane(),
+                  ),
                   Flexible(
-                    child: Container(
+                    child: Container(height: 80.0,
                       margin: EdgeInsets.only(bottom: 20.0),
                       padding:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
@@ -58,14 +63,21 @@ class AuthScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      child: Text(
-                        'Lost Of People',
-                        style: TextStyle(
-                          color: Theme.of(context).accentTextTheme.title.color,
-                          fontSize: 30,
-                          fontFamily: 'Anton',
-                          fontWeight: FontWeight.normal,
-                        ),
+
+                      child: Column(
+
+                        children: <Widget>[
+
+                          Text(
+                            'Lost Of People',
+                            style: TextStyle(
+                              color: Theme.of(context).accentTextTheme.title.color,
+                              fontSize: 30,
+                              fontFamily: 'Anton',
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

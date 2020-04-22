@@ -10,6 +10,7 @@ class Post with ChangeNotifier {
   final String dayLost;
   final String facebock;
   final String imageUrl;
+
   bool isFavorite;
 
   Post({
@@ -20,6 +21,7 @@ class Post with ChangeNotifier {
     @required this.dayLost,
     @required this.facebock,
     @required this.imageUrl,
+
     this.isFavorite = false,
   });
 

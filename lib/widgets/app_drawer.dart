@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Screens/seting%20screen.dart';
+
+import '../Screens/seting screen.dart';
 
 import '../FORM_INPUTS/location.dart';
 

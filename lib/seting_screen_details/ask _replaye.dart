@@ -5,14 +5,14 @@ class ask extends StatelessWidget {
   Widget build(BuildContext context) {
     return
 
-         ListView(
-          children: <Widget>[
+
+
             Scaffold(
               appBar: AppBar(
                 title: Text("Lost Of People"),
                 backgroundColor: Colors.blue,
               ),
-              body: Column(
+              body: ListView(
                 children: <Widget>[
                   Container(
                     child: Padding(
@@ -143,10 +143,7 @@ class ask extends StatelessWidget {
 
                 ],
               ),
-            ),
-          ],
+            );
 
-
-    );
   }
 }

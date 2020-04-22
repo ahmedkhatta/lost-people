@@ -50,6 +50,7 @@ class Posts with ChangeNotifier {
           facebock: postData['facebock'],
           location: postData['location'],
           imageUrl: postData['imageUrl'],
+
           isFavorite:favaiteData==null?false:  favaiteData[postId] ??false,
 
         ));
@@ -74,6 +75,7 @@ class Posts with ChangeNotifier {
             'facebock':post.facebock,
             'location':post.location,
 
+
           }));
       final newperson = Post(
         name: post.name,
@@ -82,6 +84,7 @@ class Posts with ChangeNotifier {
         dayLost: post.dayLost,
         facebock: post.facebock,
         location: post.location,
+
         id: json.decode(response.body)['name'],
       );
 
@@ -106,6 +109,7 @@ class Posts with ChangeNotifier {
             'imageUrl': newPost.imageUrl,
             'facebock':newPost.facebock,
             'dayLost': newPost.dayLost,
+
           }));
       _items[prodIndex] = newPost;
       notifyListeners();
