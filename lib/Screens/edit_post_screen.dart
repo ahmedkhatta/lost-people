@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -9,7 +7,6 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../providers/post.dart';
 import 'package:geolocator/geolocator.dart';
 import '../providers/posts.dart';
@@ -135,11 +132,7 @@ class _EditProductScreenState extends State<EditPersonScreen> {
                         child: Text('Ok'))
                   ],
                 ));
-//      } finally {
-//        setState(() {
-//          _isloading = false;
-//        });
-//        Navigator.of(context).pop();
+
       }
       setState(() {
         _isloading = false;

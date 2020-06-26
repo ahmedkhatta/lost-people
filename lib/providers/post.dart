@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 class Post with ChangeNotifier {
@@ -10,9 +9,7 @@ class Post with ChangeNotifier {
   final String dayLost;
   final String facebock;
   final String imageUrl;
-
   bool isFavorite;
-
   Post({
     @required this.id,
     @required this.name,
@@ -21,17 +18,12 @@ class Post with ChangeNotifier {
     @required this.dayLost,
     @required this.facebock,
     @required this.imageUrl,
-
     this.isFavorite = false,
   });
-
-
-
   void _setFavValue(bool newValue) {
     isFavorite = newValue;
     notifyListeners();
   }
-
   Future<void> toggleFavoriteStatus(String token, String userId) async {
     final oldStatus = isFavorite;
     isFavorite = !isFavorite;

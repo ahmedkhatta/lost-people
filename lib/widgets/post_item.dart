@@ -75,15 +75,7 @@ class PostItem extends StatelessWidget {
                   },
                   color: Theme.of(context).accentColor,
                 ),
-                IconButton(
-                  icon: Icon(Icons.comment),
-                  onPressed: () {
 
-
-
-                  },
-                  color: Theme.of(context).accentColor,
-                ),
               ],
             ),
           ),
