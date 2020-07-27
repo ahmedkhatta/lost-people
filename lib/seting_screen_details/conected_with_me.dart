@@ -34,70 +34,66 @@ class AboutPage extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                        height: 50.0,
-                        width: 95.0,
-                        child: Material(
-                          borderRadius: BorderRadius.circular(20.0),
-                          shadowColor: Colors.blueAccent,
-                          color: Colors.blue,
-                          elevation: 7.0,
-                          child: GestureDetector(
-                            onTap: openfacebook,
-                            child: Row(
-                              children: <Widget>[
-                                Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 0.0),
-                                    child: Text(
-                                      'FaceBook',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontFamily: 'Montserrat'),
-                                      textDirection: TextDirection.rtl,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                    padding: const EdgeInsets.only(right: 30),
+
+
+                    child: Material(
+                      color: Color(0xff00BFA5),
+
+                      child: GestureDetector(
+
+                        child: Row(
+                          children: <Widget>[
+                            Center(
+
+
+                              child: Container(
+                                height:100.0,
+                                width: 100,
+
+                                child: IconButton(
+                                    icon: new Image.asset('assets/images/facebook.png' ,height: 200,width: 200,),onPressed: openfacebook),
+                              ),
+
+
+
+
                             ),
-                          ),
-                        )),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Container(
-                        height: 50.0,
-                        width: 80.0,
+                    padding: const EdgeInsets.only(right: 20),
+
+
                         child: Material(
-                          borderRadius: BorderRadius.circular(20.0),
-                          shadowColor: Colors.blueAccent,
-                          color: Colors.blue,
-                          elevation: 7.0,
+                          color: Color(0xff00BFA5),
+
                           child: GestureDetector(
-                            onTap: openyoutube,
+
                             child: Row(
                               children: <Widget>[
                                 Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 0.0),
-                                    child: Text(
-                                      'Youtube',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontFamily: 'Montserrat'),
-                                      textDirection: TextDirection.rtl,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
+
+
+
+                                        child: Container(
+                                          height:80.0,
+                                          width: 80,
+                                          child: IconButton(
+                                            icon: new Image.asset('assets/images/you.png' ,height: 200,width: 200,),onPressed: openyoutube),
+                                        ),
+
+
+
+
                                 ),
                               ],
                             ),
                           ),
-                        )),
+                         ),
                   ),
                 ],
               ),

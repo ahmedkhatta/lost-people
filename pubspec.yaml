@@ -33,12 +33,12 @@ dependencies:
   location: any
   search_map_place: any
   image_cropper:
-  flutter_image_compress:
+  flutter_image_compress: any
   uuid:
   path_provider: any
   firebase_storage: any
   firebase_core: any
-
+  bottom_navy_bar: any
   url_launcher: any
   font_awesome_flutter:  any
   permission_handler: any
@@ -72,7 +72,10 @@ flutter:
     - assets/images/assets.jpg
     - assets/images/pp.png
     - assets/images/facebook.png
-
+    - assets/images/sp1.png
+    - assets/images/sp2.png
+    - assets/images/sp3.png
+    - assets/images/you.png
 
 
   fonts:

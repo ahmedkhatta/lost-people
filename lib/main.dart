@@ -15,6 +15,7 @@ import './Screens/edit_post_screen.dart';
 import './FORM_INPUTS/location.dart';
 import './Screens/auth_screen.dart';
 import './helpers/custom_route.dart';
+import 'Screens/splach/SPLACH.dart';
 
 void main() {
   runApp(MyHome());
@@ -59,7 +60,8 @@ class MyHome extends StatelessWidget {
                         authResultSnapshot.connectionState ==
                                 ConnectionState.waiting
                             ? SplashScreen()
-                            : AuthScreen(),
+                            :Splach(),
+                           // : AuthScreen(),
                   ),
             routes: {
               PersonDetailsScreen.routeName: (ctx) => PersonDetailsScreen(),
